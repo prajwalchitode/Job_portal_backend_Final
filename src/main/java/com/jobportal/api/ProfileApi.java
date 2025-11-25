@@ -38,4 +38,9 @@ public class ProfileApi {
     public ResponseEntity<ProfileDTO> updateProfile(@RequestBody ProfileDTO profileDTO) throws JobPortalException {
         return new ResponseEntity<>( profileService.updateProfile(profileDTO),  HttpStatus.OK);
     }
+
+    @GetMapping("/getProfileId/{id}")
+    public ResponseEntity<?> getProfileId(@PathVariable Long id){
+        return new ResponseEntity<>(profileService.getProfileId(id),HttpStatus.OK);
+    }
 }
