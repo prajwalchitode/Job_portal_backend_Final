@@ -43,7 +43,14 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://localhost:3000"));
+        // configuration.setAllowedOrigins(List.of("http://localhost:3000"));
+        configuration.setAllowedOrigins(List.of(
+        "http://localhost:3000", // For local development
+        "https://job-portal-ten-wheat-33.vercel.app", 
+        "https://job-portal-git-master-prajwalchitodes-projects.vercel.app", 
+        "https://job-portal-qfrlhzlte-prajwalchitodes-projects.vercel.app"
+        // If you have a custom domain (e.g., jobportal.com), add it too
+    ));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true); // Required if you send cookies or auth headers
